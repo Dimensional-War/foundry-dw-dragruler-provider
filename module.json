@@ -1,0 +1,22 @@
+{
+  "id": "dw-dragruler-provider",
+  "title": "DW Drag Ruler Provider",
+  "description": "A module for fantasy craft-type rolls where error and threat values are taken into account, but only if used in a roll's description.",
+  "authors": [
+    {
+      "name": "Daedalus11069",
+      "flags": {}
+    }
+  ],
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11",
+    "maximum": "11"
+  },
+  "esmodules": ["module.js"],
+  "styles": ["styles.css"],
+  "url": "https://github.com/Daedalus11069/foundry-dangerously-threatening-dice-module",
+  "manifest": "https://raw.githubusercontent.com/Daedalus11069/foundry-dangerously-threatening-dice-module/main/module.json",
+  "download": "https://github.com/Daedalus11069/foundry-dangerously-threatening-dice-module/releases/download/v0.1.0/dangerously-threatening-dice_0.1.0.zip"
+}

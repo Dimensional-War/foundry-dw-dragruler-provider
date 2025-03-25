@@ -1,0 +1,15 @@
+#token-hud .col.state-actions {
+    height: calc(100% + 200px);
+    width: 100%;
+    justify-content: center;
+}
+
+.placeable-hud .control-icon:first-child {
+    margin-top: 8px !important;
+}
+
+.col.state-actions .above {
+    position: absolute;
+    top: -50px;
+    display: flex;
+}
