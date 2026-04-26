@@ -1,22 +1,38 @@
 {
   "id": "dw-dragruler-provider",
-  "title": "Dangerously Threatening Dice",
-  "description": "A module for fantasy craft-type rolls where error and threat values are taken into account, but only if used in a roll's description.",
+  "title": "Dimensional War - Drag Ruler Provider",
+  "description": "Provides movement speed calculation for the Dimensional War system with Drag Ruler Modern. Supports walk, climb, crawl, swim, burrow, fly, and blink movement actions. Uses Foundry v13 native token.document.movementAction and Regions for terrain cost handling.",
   "authors": [
     {
       "name": "Daedalus11069",
       "flags": {}
     }
   ],
-  "version": "1.0.0",
+  "version": "2.0.0",
   "compatibility": {
-    "minimum": "11",
-    "verified": "11",
-    "maximum": "11"
+    "minimum": "13",
+    "verified": "13",
+    "maximum": "13"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "dimensionalwar",
+        "type": "requires",
+        "compatibility": {}
+      }
+    ],
+    "requires": [
+      {
+        "id": "drag-ruler-modern",
+        "type": "module",
+        "compatibility": {}
+      }
+    ]
   },
   "esmodules": ["module.js"],
   "styles": ["styles.css"],
   "url": "https://github.com/Daedalus11069/foundry-dw-dragruler-provider",
   "manifest": "https://raw.githubusercontent.com/Daedalus11069/foundry-dw-dragruler-provider/main/module.json",
-  "download": "https://github.com/Daedalus11069/foundry-dw-dragruler-provider/releases/download/v1.0.0/module.zip"
+  "download": "https://github.com/Daedalus11069/foundry-dw-dragruler-provider/releases/download/v2.0.0/module.zip"
 }
