@@ -15,17 +15,16 @@
     "maximum": "13"
   },
   "relationships": {
-    "systems": [
+    "requires": [
       {
         "id": "dimensionalwar",
-        "type": "requires",
+        "type": "system",
         "compatibility": {}
-      }
-    ],
-    "requires": [
+      },
       {
         "id": "drag-ruler-modern",
         "type": "module",
+        "manifest": "https://github.com/Daedalus11069/foundryvtt-drag-ruler-modern/releases/latest/download/module.json",
         "compatibility": {}
       }
     ]
