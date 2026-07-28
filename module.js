@@ -19,24 +19,42 @@ Hooks.once("dragRuler.ready", SpeedProvider => {
 
       const flags = actor.system.movementFlags || {};
 
-      // Priority 1: Check permanent movement abilities (flags)
-      if (flags.hasFlight) {
-        return { mode: "fly", speed: actor.flyingSpeed };
-      }
-
-      if (flags.hasTeleport) {
-        return { mode: "blink", speed: actor.walkingSpeed };
-      }
-
-      if (flags.hasParkour) {
-        return { mode: "walk", speed: actor.acrobaticsSpeed };
-      }
-
-      // Priority 2: Check token.document.movementAction (set by HUD buttons)
       // Standard values: walk, fly, swim, burrow, crawl, climb, jump, blink
       const movementAction = token.document?.movementAction || "walk";
 
       switch (movementAction) {
+        case "fly":
+          if (flags.hasFlight) {
+            return { mode: "fly", speed: actor.flyingSpeed };
+          } else {
+            // If the token doesn't have flight, fall back to walking speed
+            return { mode: "walk", speed: actor.walkingSpeed };
+          }
+
+        case "blink":
+          if (flags.hasTeleport) {
+            return { mode: "blink", speed: actor.walkingSpeed };
+          } else {
+            // If the token doesn't have teleport, fall back to walking speed
+            return { mode: "walk", speed: actor.walkingSpeed };
+          }
+        case "jump":
+          // Jumping uses acrobatics speed for distance
+          return { mode: "jump", speed: actor.acrobaticsSpeed };
+        case "parkour":
+          if (flags.hasParkour) {
+            // Parkour uses acrobatics speed for distance
+            return { mode: "parkour", speed: actor.acrobaticsSpeed };
+          } else {
+            // If the token doesn't have parkour, fall back to walking speed
+            return { mode: "walk", speed: actor.walkingSpeed };
+          }
+        case "crawl":
+          // Crawling uses acrobatics at reduced speed
+          return {
+            mode: "crawl",
+            speed: Math.floor(actor.acrobaticsSpeed / 2)
+          };
         case "swim":
           return { mode: "swim", speed: actor.swimmingSpeed };
 
